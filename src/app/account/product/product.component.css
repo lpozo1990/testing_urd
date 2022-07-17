@@ -1,0 +1,255 @@
+#subscribe {
+    display: none !important;
+}
+
+.cuadrado {
+    width: 120px;
+    height: 120px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+hr {
+    background: linear-gradient(to right, #aae0ff, #fff);
+    height: 3px;
+    border-top: 0px;
+    margin-bottom: 25px;
+}
+
+.border-circle {
+    border-radius: 50% !important;
+    border: 1px solid #ccc !important;
+}
+
+
+/* SIZE */
+
+.label-size {
+    display: block;
+    position: relative;
+    margin-right: 5px;
+    padding-top: 25px;
+    padding-left: 45px;
+    margin-bottom: 12px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default radio button */
+
+.label-size input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom radio button */
+
+.check-size {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 45px;
+    border-radius: 0;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.label-size:hover input~.check-size {
+    background-color: #000;
+    color: #fff;
+}
+
+
+/* When the radio button is checked, add a blue background */
+
+.label-size input:checked~.check-size {
+    border: 2px solid #09ff41 !important;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.check-size:after {
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the indicator (dot/circle) when checked */
+
+.label-size input:checked~.check-size:after {
+    display: block;
+}
+
+.label-size .check-size:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+
+/* size */
+
+.size {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.size .item {
+    flex: 0 0 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px;
+    font-weight: 500;
+    opacity: .5;
+    border: 1px solid #666666;
+    text-align: center;
+    cursor: pointer;
+    transition: all .3s ease-in-out !important;
+    -o-transition: all .3s ease-in-out !important;
+    -ms-transition: all .3s ease-in-out !important;
+    -moz-transition: all .3s ease-in-out !important;
+    -webkit-transition: all .3s ease-in-out !important;
+}
+
+.size .item:hover {
+    opacity: 1;
+    border: none;
+}
+
+.size .item.active {
+    opacity: 1;
+    border: 1px solid #000000;
+}
+
+
+/* color */
+
+.color {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.color .item {
+    flex: 0 0 20px;
+    height: 20px;
+    margin: 0 5px;
+    border-radius: 50%;
+    opacity: 1;
+    border: 3px solid #dddddd;
+    cursor: pointer;
+    transition: all .3s ease-in-out !important;
+    -o-transition: all .3s ease-in-out !important;
+    -ms-transition: all .3s ease-in-out !important;
+    -moz-transition: all .3s ease-in-out !important;
+    -webkit-transition: all .3s ease-in-out !important;
+}
+
+.color .item:hover {
+    border: 3px solid #ff3c58;
+}
+
+.color .item.active {
+    border: 3px solid #ff3c58;
+}
+
+.labelss {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default radio button */
+
+.labelss input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom radio button */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.labelss:hover input~.checkmark {
+    background-color: red;
+}
+
+
+/* When the radio button is checked, add a blue background */
+
+.labelss input:checked~.checkmark {
+    border: 2px solid #eee !important;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark:after {
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the indicator (dot/circle) when checked */
+
+.labelss input:checked~.checkmark:after {
+    display: block;
+}
+
+.labelss .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.color-selector {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid #444444;
+}

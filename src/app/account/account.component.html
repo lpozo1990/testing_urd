@@ -1,0 +1,71 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-section bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+
+                <div class="page-title">
+
+                    <!-- IMAGES PROFILE -->
+                    <div *ngIf="!imagenTemp && !user.image">
+                        <label for="file-upload1" class="rounded p-0 subir pointer">
+                            <img src="assets/images/icon/no-foto.jpg" class="avatar shadow border-radius" width="70px" height="70px" style="max-width:70px">
+                        </label>
+                    </div>
+                    <label for="file-upload1" class="rounded p-0 subir" *ngIf="user.image">
+                        <div class="contenedor-image avatar" style="position: relative">
+                            <img class="avatar border-radius" style="z-index: 1000" width="70px" height="70px" style="max-width:70px" [src]="imagenTemp" *ngIf="imagenTemp">
+                            <img class="avatar shadow border-radius" width="70px" height="70px" style="max-width:70px" [src]="user.image | image:'user': user.id" *ngIf="!imagenTemp">
+                        </div>
+                    </label>
+                    <input (change)="seleccionImage($event)" id="file-upload1" name="file" type="file" class="d-none" />
+                    <!-- END IMAGES PROFILE -->
+
+                    <div class="row">
+                        <div class="col-12 ml-4">
+                            <h2 class="text-white text-capitalize">Hola</h2>
+                        </div>
+                        <div class="col-12 ml-4 mt-2">
+                            <h2 class="text-capitalize">{{ userService.user.name }} {{ userService.user.lastname }}</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <a routerLink="nuevo-producto" type="submit" class="btn btn-solid float-right">Nuevo Artículo</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-b-space pb-2 mb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="account-sidebar">
+                    <a class="popup-btn">
+                        Mi cuenta
+                    </a>
+                </div>
+                <div class="dashboard-left">
+                    <div class="collection-mobile-back">
+                        <span class="filter-back">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i> atras
+                        </span>
+                    </div>
+                    <!-- SIDEBAR -->
+                    <app-sidebar></app-sidebar>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="dashboard-right">
+                    <!-- ROUTER OUTLET -->
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->

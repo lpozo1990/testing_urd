@@ -1,0 +1,99 @@
+<div class="icon-nav">
+    <ul>
+        <li class="onhover-div mobile-search search-widgets" id="search-widgets">
+            <div>
+                <!-- <img src="assets/images/icon/search.png" (click)="openSearch()" class="img-fluid" alt="">
+                <i class="ti-search" (click)="openSearch()"></i> -->
+                <a [routerLink]="'/iniciar-sesion'" id="navbar-login" *ngIf="!userService.isLogin()">
+                    <div class="ml-5">
+                        <span class="ct-icon ct-icon-login"></span>INICIAR SESION
+                    </div>
+                </a>
+                <a [routerLink]="'/cuenta/dashboard'" id="navbar-login" *ngIf="userService.isLogin()">
+                    <div class="ml-5">
+                        <span class="ct-icon ct-icon-login"></span>MI CUENTA
+                    </div>
+                </a>
+                <!-- <a [routerLink]="'/home/one'" (click)="userService.logout()" id="navbar-login" *ngIf="userService.isLogin()">
+                    <div class="ml-5">
+                        <span class="ct-icon ct-icon-login"></span>MI CUENTA
+                    </div>
+                </a> -->
+            </div>
+        </li>
+        <li class="onhover-div mobile-setting">
+            <div>
+                <a [routerLink]="'/home/wishlist'" id="navbar-wishlist">
+                    <span class="ct-icon ct-icon-wishlist"></span>
+                </a>
+            </div>
+            <!-- <div class="show-div setting">
+                <h6>Idioma</h6>
+                <ul>
+                    <li><a [routerLink]="" (click)="changeLanguage('en')">English</a> </li>
+                    <li><a [routerLink]="" (click)="changeLanguage('es')">Español</a> </li>
+                </ul>
+            </div> -->
+        </li>
+        <li class="onhover-div mobile-cart" id="navbar-car" *ngIf="!productsService?.catalogMode">
+            <div>
+                <a [routerLink]="'/home/cart'">
+                    <span class="ct-icon ct-icon-car"></span>
+                </a>
+            </div>
+            <ul class="show-div shopping-cart" *ngIf='!shoppingCartItems.length'>
+                <h5>Tu carro está vacío.</h5>
+            </ul>
+            <span class="cart_qty_cls">{{shoppingCartItems.length}}</span>
+            <ul class="show-div shopping-cart" *ngIf='shoppingCartItems.length'>
+                <li *ngFor="let item of shoppingCartItems">
+                    <div class="media">
+                        <a [routerLink]="['/home/producto', item.product.slug]">
+                            <img class="mr-3" src="{{ url }}/{{ item.product.id }}/{{item.product.coverImage}}" alt="Generic placeholder image">
+                        </a>
+                        <div class="media-body">
+                            <a [routerLink]="['/home/producto', item.product.slug]">
+                                <h4>{{ item.product.name }}</h4>
+                            </a>
+                            <h4><span>{{ item.quantity }} x {{ item.product.price | currency:productsService?.currency:'symbol' }}</span></h4>
+                        </div>
+                    </div>
+                    <div class="close-circle">
+                        <a (click)="removeItem(item)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="total">
+                        <h5>subtotal : <span>{{ getTotal() | async | currency:productsService?.currency:'symbol'}}</span></h5>
+                    </div>
+                </li>
+                <li>
+                    <div class="buttons">
+                        <a [routerLink]="'/home/cart'" class="view-cart">Ver carro</a>
+                        <a class="checkout pointer" (click)="checkout()">checkout</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- Search -->
+<div id="search-overlay" class="search-overlay" *ngIf="show" [ngStyle]="{ 'display': 'block' }">
+    <div>
+        <span class="closebtn" title="Close Overlay" (click)="closeSearch()">×</span>
+        <div class="overlay-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Buscar un producto">
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

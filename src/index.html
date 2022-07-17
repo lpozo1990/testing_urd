@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <script src="https://www.google.com/recaptcha/api.js" async defer>
+    </script>
+    <title>Urdress</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vestidos en renta">
+    <meta name="author" content="Jorge Medina">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- Styles -->
+    <link rel="shortcut icon" href="assets/images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/images/favicon/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="assets/images/favicon/smalltile.png" />
+    <meta name="msapplication-square150x150logo" content="assets/images/favicon/mediumtile.png" />
+    <meta name="msapplication-wide310x150logo" content="assets/images/favicon/widetile.png" />
+    <meta name="msapplication-square310x310logo" content="assets/images/favicon/largetile.png" />
+    <link rel="shortcut icon" href="assets/images/images/favicon.png" type="image/x-icon" />
+    <!--Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700|Libre+Baskerville:400,700|Merriweather+Sans:300,400,600,700|Merriweather:300,400,600,700&amp;subset=latin-ext" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- pre-loader start -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+    <!-- pre-loader end -->
+    <app-root></app-root>
+    <!-- color variation -->
+    <!-- <div id="color"></div> -->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <!-- facebook chat section start -->
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="2123438804574660" theme_color="#aae0ff" logged_in_greeting="Hola, bienvenido a Urdress, en que podemos ayudarte?" logged_out_greeting="Hola, bienvenido a Urdress, en que podemos ayudarte?">
+    </div>
+    <!-- facebook chat section end -->
+
+    <!-- tap to top -->
+    <div class="tap-top top-cls">
+        <div>
+            <i class="fa fa-angle-double-up"></i>
+        </div>
+    </div>
+    <!-- tap to top -->
+
+</body>
+
+</html>

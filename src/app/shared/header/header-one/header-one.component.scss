@@ -1,0 +1,21 @@
+@import '../../../../vendor/pace/pace-orange-min.css';
+@import '../../../../assets/scss/color1';
+.brand-logo img {
+    height: 65px;
+}
+
+@media (max-width: 480px) {
+    .brand-logo img {
+        height: 45px;
+    }
+}
+
+@media (max-width: 577px) {
+    .brand-logo {
+        left: 10%;
+    }
+    app-navbar {
+        display: flex;
+        float: right;
+    }
+}

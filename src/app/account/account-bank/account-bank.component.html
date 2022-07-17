@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-12">
+        <h4>Agregar información de banco</h4>
+        <hr>
+    </div>
+</div>
+
+<form action="" [formGroup]="forma" (ngSubmit)="updateBank()">
+
+    <div class="row" *ngIf="bank">
+
+        <!-- BANK -->
+        <div class="col-12 col-md-6 mt-4">
+            <span class="text-uppercase font-weight-bold">Nombre del banco</span>
+            <hr>
+            <div class="row mt-3 pl-3">
+                <div class="col-12 text-left pl-0">
+                    <input formControlName="bank" [(ngModel)]="bank.bank" name="bank" type="text" class="form-control" id="bank" placeholder="" required="">
+                </div>
+            </div>
+        </div>
+        <!-- END BANK -->
+
+        <!-- ACCOUNT -->
+        <div class="col-12 col-md-6 mt-4">
+            <span class="text-uppercase font-weight-bold">No. Cuenta</span>
+            <hr>
+            <div class="row mt-3 pl-3">
+                <div class="col-12 text-left pl-0">
+                    <input formControlName="account" [(ngModel)]="bank.account" name="account" type="text" class="form-control" id="account" placeholder="" required="">
+                </div>
+            </div>
+        </div>
+        <!-- END ACCOUNT -->
+
+        <!-- KEY -->
+        <div class="col-12 col-md-6 mt-4">
+            <span class="text-uppercase font-weight-bold">No. clave</span>
+            <hr>
+            <div class="row mt-2 pl-3">
+                <div class="col-12 text-left pl-0">
+                    <input formControlName="clave" name="clave" [(ngModel)]="bank.clave" type="text" class="form-control" id="clave" placeholder="" required="">
+                </div>
+            </div>
+        </div>
+        <!-- END KEY -->
+
+        <!-- NAME -->
+        <div class="col-12 col-md-6 mt-4">
+            <span class="text-uppercase font-weight-bold">Nombre</span>
+            <hr>
+            <div class="row mt-2 pl-3">
+                <div class="col-12 text-left pl-0">
+                    <input formControlName="name" name="name" [(ngModel)]="bank.name" type="text" class="form-control" id="name" placeholder="" required="">
+                </div>
+            </div>
+        </div>
+        <!-- END NAME -->
+        <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-primary btn-rounded text-white float-right">Guardar</button>
+        </div>
+    </div>
+</form>

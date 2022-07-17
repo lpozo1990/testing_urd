@@ -1,0 +1,125 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Dashboard</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="'/home/one'">Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="account-sidebar">
+                    <a class="popup-btn">
+                        Mi cuenta
+                    </a>
+                </div>
+                <div class="dashboard-left">
+                    <div class="collection-mobile-back">
+                        <span class="filter-back">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i> atras
+                        </span>
+                    </div>
+                    <div class="block-content">
+                        <ul>
+                            <li class="active"><a href='#'>Informacion de la cuenta</a></li>
+                            <li><a [routerLink]="">Directorio</a></li>
+                            <li><a [routerLink]="">Mis ordenes</a></li>
+                            <li><a [routerLink]="">Favoritos</a></li>
+                            <li><a [routerLink]="">Newsletter</a></li>
+                            <li><a [routerLink]="">Mi cuenta</a></li>
+                            <li><a [routerLink]="">Cambiar contraseña</a></li>
+                            <li class="last"><a [routerLink]="">Salir</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="dashboard-right">
+                    <div class="dashboard">
+                        <div class="page-title">
+                            <h2>Dashboard</h2>
+                        </div>
+                        <div class="welcome-msg">
+                            <p>Hola, {{ userService.user.name }} {{ userService.user.lastname }} !</p>
+                            <p>Desde el Panel de control, puede ver la actividad reciente de su cuenta y actualizar los datos de la misma. Seleccione un enlace a continuación para ver o editar información.</p>
+                        </div>
+                        <div class="box-account box-info mt-4">
+                            <div class="box-head">
+                                <h2>Informacion de la cuenta</h2>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-sm-6">
+                                    <div class="box">
+                                        <div class="box-title">
+                                            <h3>Informacion de contacto</h3>
+                                            <a [routerLink]="">Editar</a>
+                                        </div>
+                                        <div class="box-content">
+                                            <h6>{{ userService.user.name }} {{ userService.user.lastname }}</h6>
+                                            <h6>{{ userService.user.email }}</h6>
+                                            <h6><a [routerLink]="">Cambiar Contraseña</a></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="box">
+                                        <div class="box-title">
+                                            <h3>Newsletters</h3>
+                                            <a [routerLink]="">Editar</a>
+                                        </div>
+                                        <div class="box-content">
+                                            <p>
+                                                Actualmente no estás suscrito a ningún boletín.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="box">
+                                    <div class="box-title">
+                                        <h3>Directorio</h3>
+                                        <a [routerLink]="">Administrar direcciones</a>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h6>Direccion de facturacion por defecto</h6>
+                                            <address>
+                                                No tiene una direccion de facturacion por defecto configurada.<br>
+                                                <a [routerLink]="">Editar direccion</a>
+                                            </address>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h6>Direccion de envio por defecto</h6>
+                                            <address>
+                                                No tiene una direccion de envio por defecto configurada.<br>
+                                                <a [routerLink]="">Editar direccion</a>
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->

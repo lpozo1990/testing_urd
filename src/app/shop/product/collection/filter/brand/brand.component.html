@@ -1,0 +1,12 @@
+<!-- brand filter start -->
+<div class="collection-collapse-block open">
+    <h3 class="collapse-block-title">Talla</h3>
+    <div class="collection-collapse-block-content">
+        <div class="collection-brand-filter">
+            <div class="custom-control custom-checkbox collection-filter-checkbox" *ngFor="let filter of sizesFilters">
+                <input type="checkbox" class="custom-control-input" [value]="filter.size" (change)=checkedFilter($event) id="{{filter.size}}">
+                <label class="custom-control-label" for="{{filter.size}}">{{filter.size}}</label>
+            </div>
+        </div>
+    </div>
+</div>

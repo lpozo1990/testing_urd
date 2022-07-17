@@ -1,0 +1,57 @@
+#navbar-login span.ct-icon {
+    width: 25px;
+    height: 25px;
+    background-size: 25px;
+}
+
+#navbar-wishlist span.ct-icon {
+    width: 25px;
+    height: 25px;
+    background-size: 25px;
+    background-position-y: -50px;
+}
+
+#navbar-car span.ct-icon {
+    width: 25px;
+    height: 25px;
+    background-size: 25px;
+    background-position-y: -100px;
+}
+
+#navbar-login:hover span.ct-icon-login {
+    background-position-y: -25px;
+}
+
+#navbar-car:hover span.ct-icon-car {
+    background-position-y: -125px;
+}
+
+#navbar-wishlist:hover span.ct-icon {
+    background-position-y: -75px;
+}
+
+a {
+    color: #000000 !important;
+    text-decoration: none !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+a:hover,
+a:active,
+a:link {
+    color: #aae0ff !important;
+}
+
+.cart_qty_cls {
+    background: #fb5058;
+}

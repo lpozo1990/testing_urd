@@ -1,0 +1,74 @@
+<!-- Paragraph-->
+<!-- <div class="title1  section-t-space">
+    <h4>PARA CUALQUIER OCASIÓN</h4>
+    <h2 class="title-inner1">Encuentra el vestido ideal.</h2>
+</div> -->
+<div id="ideal-dress-contain" class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-12 ideal-dress-title-contain">
+            <div class="ideal-dress-toptitle">PARA CUALQUIER OCASIÓN</div>
+            <div class="ideal-dress-title">Encuentra el vestido ideal.</div>
+            <div class="ideal-dress-subtitle">Para cualquier ocasión.</div>
+        </div>
+        <div class="col-lg-4 col-md-12 ideal-dress-button-contain">
+            <a routerLink="/home/productos/all" class="ideal-dress-button">VER TODOS LOS VESTIDOS</a>
+        </div>
+    </div>
+</div>
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="product-para">
+                <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Paragraph end -->
+<!-- Product slider -->
+<section class="section-b-space p-t-0 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ng-container *ngIf="products">
+                    <ngx-slick-carousel class="product-4 product-m no-arrow" #slickModal="slick-carousel" [config]="productSlideConfig">
+                        <div ngxSlickItem class="product-box" *ngFor="let product of products | slice:0:16">
+                            <app-product [product]="product"></app-product>
+                        </div>
+                    </ngx-slick-carousel>
+                </ng-container>
+                <ng-container *ngIf="!products">
+                    <div class="text-center">
+                        <div class="col-sm-12 text-center">
+                            <div class="spinner-border text-info" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="text-center text-info">
+                                Cargando los productos, por favor espere...
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-b-space p-t-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="recommend-dress-title"><span>Productos recomendados</span></div>
+            </div>
+            <div class="col">
+                <ngx-slick-carousel class="product-4 product-m no-arrow" #slickModal="slick-carousel" [config]="productSlideRecomendedConfig">
+                    <div ngxSlickItem class="product-box" *ngFor="let product of products | slice:0:16">
+                        <app-product [product]="product" id="recommend"></app-product>
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product slider end -->

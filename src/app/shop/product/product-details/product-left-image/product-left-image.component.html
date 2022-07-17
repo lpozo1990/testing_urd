@@ -1,0 +1,260 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>producto</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="'/home/one'">Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">producto</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section *ngIf="product">
+    <div class="collection-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1 col-sm-2 col-xs-12">
+                    <div class="row">
+                        <div class="col-12 p-0" *ngIf="images">
+                            <ngx-slick-carousel class="slider-right-nav" #slickModal="slick-carousel" [config]="slideRightNavConfig">
+                                <ng-container>
+                                    <div ngxSlickItem *ngFor="let image of images">
+                                        <div>
+                                            <img [src]="image" alt="" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </ngx-slick-carousel>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-sm-10 col-xs-12  order-up" *ngIf="images">
+                    <ngx-slick-carousel class="product-right-slick" #slickModal="slick-carousel" [config]="slideRightConfig">
+                        <div ngxSlickItem *ngFor="let image of images">
+                            <div>
+                                <img [src]="image" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+                <div class="col-lg-6 rtl-text">
+                    <div class="product-right">
+                        <h2>{{product.name}}</h2>
+                        <!-- <h4 *ngIf="!productsService?.catalogMode"><del>{{product.salePrice | currency:productsService?.currency:'symbol'}}</del><span>{{product.discount}}% off</span></h4> -->
+                        <h3 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}} Renta</h3>
+                        <h5 *ngIf="!productsService?.catalogMode && product.price_sale"> Costo del vestido: {{product.price_sale | currency:productsService?.currency:'symbol'}}</h5>
+
+                        <div class="size text-left">
+                            <div class="size-box">
+                                <ul>
+                                    <li [ngClass]="{'active': selectedColor == color.name}" [ngStyle]="{'background': color.color}" *ngFor="let color of product.colors">
+                                        <a [routerLink]="" (click)="changeColorVariant(color.name)" class="">
+                                            <h6 class="mb-0"></h6>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-description border-product" *ngIf="!productsService?.catalogMode">
+                            <h6 class="product-title">Tallas Disponibles </h6>
+                            <div class="size-box">
+                                <ul *ngIf="selectedSize !== ''">
+                                    <li [ngClass]="{'active': selectedSize == size.name}" style="background-color: #eee;" *ngFor="let size of product.size">
+                                        <a [routerLink]="" (click)="changeSizeVariant(size.name)" class="">
+                                            <h6 class="mb-0">{{size.name}}</h6>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                            <div>
+                                <span>Estatus: <h5 class="avalibility" *ngIf="counter <= product.stock"> <span>Disponible</span></h5>
+                                </span>
+                            </div>
+
+                            <h5 class="avalibility" *ngIf="counter > product.stock"><span>No disponible</span></h5>
+                            <div class="row">
+                                <div class="col-3 d-flex align-items-center">
+                                    <h6 class="product-title">Fecha de renta</h6>
+                                </div>
+                                <div class="col-7">
+                                    <input type="date" class="form-control" name="" id="" (change)="submitDateRent($event)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-buttons" *ngIf="!productsService?.catalogMode">
+                            <a [routerLink]="" (click)="addToCart(product, counter)" class="btn btn-solid">Rentar ahora</a>
+                            <!-- <a [routerLink]="" (click)="buyNow(product, counter)" class="btn btn-solid" [class.disabled]="counter > product.stock">buy now</a> -->
+                        </div>
+                        <div class="border-product">
+                            <h6 class="product-title">Detalles</h6>
+                            <p [innerHTML]="product.shortDetails"></p>
+                        </div>
+                        <div class="border-product">
+                            <h6 class="product-title">Compartir</h6>
+                            <div class="product-icon">
+                                <ul class="product-social">
+                                    <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://plus.google.com/discover"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                                <form class="d-inline-block" *ngIf="!productsService?.catalogMode">
+                                    <button class="wishlist-btn" (click)="addToWishlist(product)"><i class="fa fa-heart"></i><span class="title-font">Agregar a favoritos</span></button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- <div class="border-product" *ngIf="!productsService?.catalogMode">
+                            <h6 class="product-title">Time Reminder</h6>
+                            <div class="timer">
+                                <p id="timer">
+                                    <span>25
+                                        <span class="padding-l">:</span>
+                                    <span class="timer-cal">Days</span>
+                                    </span>
+                                    <span>22
+                                        <span class="padding-l">:</span>
+                                    <span class="timer-cal">Hrs</span>
+                                    </span>
+                                    <span>13
+                                        <span class="padding-l">:</span>
+                                    <span class="timer-cal">Min</span>
+                                    </span>
+                                    <span>57
+                                        <span class="timer-cal">Sec</span>
+                                    </span>
+                                </p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->
+<!-- product-tab starts -->
+<section class="tab-product m-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="top-home-tab" data-toggle="tab" href="#top-home" role="tab" aria-selected="true">Descripcion</a>
+                        <div class="material-border"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-top-tab" data-toggle="tab" href="#top-profile" role="tab" aria-selected="false">Detalles</a>
+                        <div class="material-border"></div>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" id="contact-top-tab" data-toggle="tab" href="#top-contact" role="tab" aria-selected="false">Video</a>
+                        <div class="material-border"></div>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" id="review-top-tab" data-toggle="tab" href="#top-review" role="tab" aria-selected="false">Dejar un comentario</a>
+                        <div class="material-border"></div>
+                    </li>
+                </ul>
+                <div class="tab-content nav-material" id="top-tabContent">
+                    <div class="tab-pane fade show active" id="top-home" role="tabpanel" aria-labelledby="top-home-tab">
+                        <p [innerHTML]="product.description">
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
+                        <p [innerHTML]="product.description">
+                        </p>
+                        <div class="single-product-tables">
+                            <table>
+                                <tbody>
+                                    <!-- <tr>
+                                        <td>Fabricado</td>
+                                        <td>Chiffon</td>
+                                    </tr> -->
+                                    <tr>
+                                        <td>Color</td>
+                                        <td>Rojo</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td>Material</td>
+                                        <td>Algodon</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                            <table>
+                                <tbody>
+                                    <!-- <tr>
+                                        <td>Length</td>
+                                        <td>50 Inches</td>
+                                    </tr> -->
+                                    <tr>
+                                        <td>Tallas</td>
+                                        <td>S, M, L .XXL</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
+                        <div class="mt-3 text-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/BUWzX78Ye_8" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    </div> -->
+                    <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
+                        <form class="theme-form">
+                            <div class="form-row">
+                                <div class="col-md-12 ">
+                                    <div class="media">
+                                        <label>Rating</label>
+                                        <div class="media-body ml-3">
+                                            <div class="rating three-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email">E-mail</label>
+                                    <input type="text" class="form-control" id="email" placeholder="email@email.com" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="review">Asunto</label>
+                                    <input type="text" class="form-control" id="review" placeholder="Ingrese el asunto del comentario" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="review">Comentario</label>
+                                    <textarea class="form-control" placeholder="Escribe tu comentario" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn btn-solid" type="submit">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- product-tab ends -->
+<app-related-products></app-related-products>

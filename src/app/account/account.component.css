@@ -1,0 +1,19 @@
+:host {
+    font-family: "Merriweather Sans";
+}
+
+.bg-primary {
+    background-color: #01addf !important;
+}
+
+.text-white {
+    color: #FFFFFF !important;
+}
+
+.border-radius {
+    border-radius: 50px;
+}
+
+.pointer {
+    cursor: pointer;
+}

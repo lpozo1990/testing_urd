@@ -1,0 +1,116 @@
+/***************************
+SUBSCRIBE STYLES
+***************************/
+
+
+/* contain */
+
+#subscribe-contain {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+
+/* subscribe title */
+
+#subscribe-contain .subscribe-form-contain #subscribe-title {
+    font-family: "Libre Baskerville", serif;
+    color: #323a4d;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+    #subscribe-contain .subscribe-form-contain #subscribe-title {
+        font-size: 30px;
+    }
+}
+
+
+/* subscribe form */
+
+#subscribe-contain .subscribe-form-contain #subscribe-form form {
+    display: block;
+}
+
+#subscribe-contain .subscribe-form-contain #subscribe-form form .input-group {
+    position: relative;
+    display: inline-block;
+    max-width: 390px;
+    width: 100%;
+    height: 67px;
+    margin: 0 !important;
+}
+
+#subscribe-contain .subscribe-form-contain #subscribe-form form .input-group #subscribe-email {
+    width: 100%;
+    height: 100%;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    border: 2px solid transparent;
+    background: #f6f4f0;
+    color: #595c65;
+    padding: 5px 20px;
+    font-family: Raleway;
+    font-size: 15px;
+}
+
+#subscribe-contain .subscribe-form-contain #subscribe-form form .input-group #subscribe-email:focus,
+#subscribe-contain .subscribe-form-contain #subscribe-form form .input-group #subscribe-email:hover {
+    border-color: #dec0b2;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+
+#subscribe-contain .subscribe-form-contain #subscribe-form form .form-submit {
+    position: relative;
+    display: inline-block;
+    height: 67px;
+    margin: 0 !important;
+}
+
+#subscribe-contain .subscribe-form-contain #subscribe-form form button[type="submit"] {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    padding: 0 40px;
+    outline: none !important;
+    border: 2px solid transparent;
+    box-shadow: none !important;
+    margin: 0 !important;
+    background: #aae0ff;
+    color: #fff;
+    border-radius: 0;
+    margin-left: 5px !important;
+    font-family: Raleway;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .3px;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+
+#subscribe-contain .subscribe-form-contain #subscribe-form form button[type="submit"]:hover {
+    background: #fff;
+    border-color: #aae0ff;
+    color: #aae0ff;
+}
+
+@media (max-width: 767px) {
+    #subscribe-contain .subscribe-form-contain #subscribe-form form .form-submit {
+        max-width: 390px;
+        width: 100%;
+    }
+    #subscribe-contain .subscribe-form-contain #subscribe-form form button[type="submit"] {
+        margin-left: 0px !important;
+        width: 100%;
+    }
+}

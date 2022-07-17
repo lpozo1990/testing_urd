@@ -1,0 +1,54 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Inicar sesión</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="'/home/one'">Inicio</a></li>
+                        <li class="breadcrumb-item active">ingresar</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="login-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>Ingresar</h3>
+                <div class="theme-card">
+                    <form action="" [formGroup]="forma" (ngSubmit)="login()" class="theme-form">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input [(ngModel)]="email" formControlName="email" name="email" type="text" class="form-control" id="email" placeholder="E-mail" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="review">Contraseña</label>
+                            <input formControlName="password" name="password" type="password" class="form-control" id="review" placeholder="Ingrese su contraseña" required="">
+                            <label for="" class="float-right mt-2"><a routerLink="/olvido-contrasena" class="pointer text-info mt-2">¿Olvidaste tu contraseña?</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-solid">Ingresar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6 right-login">
+                <h3>Nuevo usuario</h3>
+                <div class="theme-card authentication-right">
+                    <h6 class="title-font">Crear una cuenta</h6>
+                    <p>Regístrese para obtener una cuenta gratuita en nuestra tienda. Registrarse es fácil y rapido. Le permite realizar pedidos en nuestra tienda. Para comenzar a comprar haga clic en registrarse.</p>
+                    <button class="btn btn-solid" routerLink="/registro">Crear cuenta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->

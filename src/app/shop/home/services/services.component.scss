@@ -1,0 +1,204 @@
+p {
+    line-height: 1.4 !important;
+}
+
+@media (max-width: 577px) {
+    .media img {
+        height: 60px;
+        padding: 8px;
+    }
+    .steps-item {
+        color: #5f5f5f;
+        line-height: 1.4;
+        font-size: 13px;
+        max-width: 130px;
+        margin: auto;
+    }
+    .service-block {
+        -webkit-box-align: unset;
+        align-items: unset;
+    }
+}
+
+
+/**************************
+HOME STEPS NOFITY STYLES
+**************************/
+
+
+/* contain */
+
+#steps-notify-contain {
+    margin-top: 30px;
+}
+
+
+/* step contain */
+
+#steps-notify-contain .steps-contain {
+    position: relative;
+    padding-bottom: 15px;
+    display: flex;
+}
+
+.steps-contain:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+}
+
+.steps-contain:before {
+    position: absolute;
+    color: #bcbcbc;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    line-height: .4;
+    background: #fff;
+    z-index: 1;
+}
+
+@media (max-width: 991px) {
+    #steps-notify-contain .steps-contain {
+        padding-bottom: 30px;
+    }
+    .steps-contain:after {
+        top: initial;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+    }
+    .steps-contain:before {
+        right: 50%;
+        top: initial;
+        bottom: 0;
+        transform: rotateZ(90deg);
+        -webkit-transform: rotateZ(90deg);
+        -moz-transform: rotateZ(90deg);
+        -ms-transform: rotateZ(90deg);
+        -o-transform: rotateZ(90deg);
+    }
+}
+
+@media (max-width: 575px) {
+    #steps-notify-contain .steps-contain {
+        display: block;
+        text-align: center;
+    }
+}
+
+
+/* item step */
+
+#steps-notify-contain .steps-contain .steps-item {
+    vertical-align: top;
+    text-align: center;
+    flex: 1;
+}
+
+@media (max-width: 575px) {
+    #steps-notify-contain .steps-contain .steps-item {
+        flex: initial;
+        display: inline-block;
+        width: 32%;
+        margin-bottom: 10px;
+    }
+}
+
+
+/* item step icon */
+
+#steps-notify-contain .steps-contain .steps-item .steps-item-icon {
+    animation-duration: 0s;
+}
+
+#steps-notify-contain .steps-contain .steps-item:hover .steps-item-icon {
+    position: relative;
+    animation: shaek .5s 1;
+}
+
+
+/* item step title */
+
+#steps-notify-contain .steps-contain .steps-item .steps-item-title {
+    color: #5f5f5f;
+    line-height: 1.4;
+    font-size: 16px;
+    max-width: 130px;
+    margin: auto;
+}
+
+#steps-notify-contain .steps-contain .steps-item:hover .steps-item-title {
+    color: #f76d70;
+}
+
+@media (max-width: 575px) {
+    #steps-notify-contain .steps-contain .steps-item .steps-item-title {
+        font-size: 12px;
+    }
+}
+
+
+/* notify contain */
+
+#steps-notify-contain .notify-contain {
+    padding-left: 30px;
+    text-align: center;
+}
+
+
+/* notify title */
+
+#steps-notify-contain .notify-contain .notify-title {
+    padding-top: 10px;
+    font-family: GiddyUp;
+    font-size: 24px;
+    line-height: 1.3;
+    text-align: left;
+    color: #5f5f5f;
+}
+
+@media (max-width: 991px) {
+    #steps-notify-contain .notify-contain .notify-title {
+        padding-top: 30px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    #steps-notify-contain .notify-contain .notify-title {
+        font-size: 26px;
+    }
+}
+
+
+/* notify button */
+
+#steps-notify-contain .notify-contain .notify-button {
+    color: #aae0ff !important;
+    border: 1px solid #aae0ff;
+    border-radius: 3px;
+    padding: 10px 15px;
+    background: transparent;
+    cursor: pointer;
+    margin: auto;
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 15px;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+
+#steps-notify-contain .notify-contain .notify-button:hover {
+    background: #aae0ff;
+    color: #fff !important;
+}

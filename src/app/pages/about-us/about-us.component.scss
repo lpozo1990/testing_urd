@@ -1,0 +1,204 @@
+p,
+li {
+    font-family: Raleway !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+}
+
+.bg-header {
+    height: 300px;
+    background-image: url('/assets/images/header_web.png');
+}
+
+h2 {
+    font-size: 30px !important;
+}
+
+@media (max-width: 575px) {
+    .about-page {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .services-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.about-page {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.services-container {
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+
+/***************************
+SERVICES STYLES
+***************************/
+
+
+/* contain */
+
+#services-contain {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ededec;
+}
+
+
+/* contain items contain */
+
+#services-contain .services-items-contain {
+    display: flex;
+}
+
+@media (max-width: 575px) {
+    #services-contain .services-items-contain {
+        display: block;
+    }
+}
+
+
+/* contain items */
+
+#services-contain .services-items-contain .services-items {
+    flex: 1;
+    width: 25%;
+}
+
+@media (max-width: 991px) {
+    #services-contain .services-items-contain .services-items {
+        text-align: center;
+    }
+}
+
+@media (max-width: 575px) {
+    #services-contain .services-items-contain .services-items {
+        text-align: center;
+        width: 48%;
+        flex: 0;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 425px) {
+    #services-contain .services-items-contain .services-items {
+        width: 100%;
+    }
+}
+
+
+/* contain items icons */
+
+#services-contain .services-items-contain .services-items .services-items-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    background-image: url(../../../assets/images/icon/icons.png);
+    background-repeat: no-repeat;
+    background-position-x: 0;
+    background-size: 60px;
+}
+
+#services-contain .services-items-contain .services-items .services-items-icon.services-items-icon-dress {
+    background-position-y: -780px;
+}
+
+#services-contain .services-items-contain .services-items .services-items-icon.services-items-icon-heart {
+    background-position-y: -840px;
+}
+
+#services-contain .services-items-contain .services-items .services-items-icon.services-items-icon-diamont {
+    background-position-y: -900px;
+}
+
+#services-contain .services-items-contain .services-items .services-items-icon.services-items-icon-gift {
+    background-position-y: -960px;
+}
+
+@media (max-width: 575px) {
+    #services-contain .services-items-contain .services-items .services-items-icon {
+        display: block;
+        margin: auto;
+    }
+}
+
+
+/* contain items content */
+
+#services-contain .services-items-contain .services-items .services-items-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/* contain items cont */
+
+#services-contain .services-items-contain .services-items .services-items-content .services-items-cont {
+    font-family: "Libre Baskerville", serif;
+    font-size: 30px;
+    color: #4f525a;
+}
+
+
+/* contain items title */
+
+#services-contain .services-items-contain .services-items .services-items-content .services-items-title {
+    font-family: Raleway, serif;
+    color: #aae0ff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.testimonial {
+    height: 300px;
+    // width: 100%;
+    background: url('/assets/images/img_sintex.png')no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    // height: 100%;
+    width: 100%;
+}
+
+.ideal-dress-toptitle {
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Raleway;
+    // color: #aae0ff;
+    letter-spacing: 2px;
+    padding-left: 80px;
+    // padding-right: 30px;
+    // position: relative;
+}
+
+.ideal-dress-toptitle:before {
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    width: 60px;
+    height: 1px;
+    background: #aae0ff;
+    left: 2%;
+    z-index: 1;
+    position: absolute;
+}

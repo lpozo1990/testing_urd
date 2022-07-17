@@ -1,0 +1,56 @@
+<div class="block-content shadow">
+    <ul id="left-navbar" class="nav navbar-nav">
+        <li class="" routerLinkActive="active"><a routerLink="dashboard"><i class="fa fa-user-circle"></i> Mi cuenta</a>
+        </li>
+        <li class="" routerLinkActive="active"><a routerLink="account-bank"><i class="fa fa-money"></i> Cuenta de banco</a>
+        </li>
+        <li class="" routerLinkActive="active"><a routerLink="historial-rentas"><i class="fa fa-list-ul"></i> Lo que he rentado</a></li>
+        <li class="" routerLinkActive="active"><a routerLink="mis-ordenes"><i class="fa fa-list-ul"></i> Lo que me han rentado</a></li>
+        <li class="" routerLinkActive="active"><a routerLink="inventario"><i class="steps-item-icon ct-icon ct-icon-dress"></i>
+            Inventario / Vestidos</a></li>
+        <li class="" routerLinkActive="active"><a routerLink="favoritos"><i class="fa fa-star"></i> Favoritos</a></li>
+        <li class="pointer"><a (click)="userService.logout()">Salir</a></li>
+    </ul>
+</div>
+<div class="block-content shadow mt-4" *ngIf="this._messagesService.chatEnabled">
+    <div class="row">
+        <h3 class="ml-3"><strong>Chat</strong></h3>
+        <section #scrollMe style="height: 250px; width: 100%;" class="scroll-bar mt-1 pt-2 pb-2 mb-3">
+            <div class="list-group-item justify-content-between align-items-center p-2" *ngFor="let message of this._messagesService.messages">
+
+                <div class="row mx-0" *ngIf="message.from_message">
+                    <div class="col-9">
+                        <div class="speech-bubble p-2 text-white">{{ message.from_message }}</div>
+                    </div>
+                    <div class="col-3 px-0 text-left">
+                        <small>{{ message.creado | date:'shortTime' }}</small>
+                    </div>
+                </div>
+
+                <div class="row mx-0" *ngIf="message.to_message">
+                    <div class="col-3 px-0 text-right">
+                        <small>{{ message.creado | date:'shortTime' }}</small>
+                    </div>
+                    <div class="col-9">
+                        <div class="speech-bubble-admin p-2 text-white">{{ message.to_message }}</div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+        <section class="pt-0">
+            <form action="" [formGroup]="forma" (ngSubmit)="sendMessage()">
+                <div class="row mx-0">
+                    <div class="col-8">
+                        <input placeholder="Escribe tu mensaje" class="form-control" name="message" formControlName="message">
+                    </div>
+                    <div class="col-2 pl-0 d-flex">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

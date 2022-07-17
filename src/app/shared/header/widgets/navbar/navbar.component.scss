@@ -1,0 +1,29 @@
+.m-toggle {
+    right: 0px;
+}
+
+>ul>li>a {
+    color: #000000 !important;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0;
+    margin: 13px 10px;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+
+.pixelstrap a,
+.pixelstrap a:hover,
+.pixelstrap a:active {
+    padding-right: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.active {
+    color: #aae0ff !important;
+}

@@ -1,0 +1,43 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Verificacion</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="'/home/one'">Inicio</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">verificacion</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="register-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="theme-card">
+                    <div class="form-row">
+                        <div class="col-md-12" *ngIf="verified">
+                            <h3>Felicidades, su cuenta ha sido verificada, ya puede iniciar sesión</h3>
+                            <a class="btn btn-outline" [routerLink]="['/iniciar-sesion']">Iniciar sesión</a>
+                        </div>
+                        <div class="col-md-12" *ngIf="!verified">
+                            <h3>Lo sentimos, su cuenta no ha sido verificada</h3>
+                            <a class="btn btn-outline" [routerLink]="['/home/one']">Inicio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->

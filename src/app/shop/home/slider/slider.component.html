@@ -1,0 +1,90 @@
+<!-- Home slider -->
+<!-- <section class="p-0">
+    <ngx-slick-carousel class="home-slider bck-black" #slickModal="slick-carousel" [config]="sliderConfig">
+        <div ngxSlickItem>
+            <div class="home home1 text-center d-flex justify-content-center" id="slider">
+                <div class="gridtile"></div>
+
+                <div class="container slider-info d-flex justify-content-center">
+                    <div class="row">
+                        <div class="col">
+                            <div class="slider-contain">
+                                <div class="text-center">
+                                    <h2>Forma parte de la sensación de la fiesta</h2>
+                                    <h4>Contamos con más de 100 modelos diferentes para ti.</h4>
+                                    <a [routerLink]="'/home/left-sidebar/collection/women'" class="btn btn-solid">Rentar ahora</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ngx-slick-carousel>
+</section> -->
+
+<section id="slider-banner" class="full-width">
+    <div id="slider-banner-bg"></div>
+    <div id="slider-banner-bg-transparent"></div>
+    <div id="slider-content">
+        <div id="slider-content-title">Forma parte de la sensación de la fiesta</div>
+        <div id="slider-content-subtitle">Contamos con más de 100 modelos diferentes para ti.</div>
+        <div id="slider-content-search">
+            <form action="" [formGroup]="forma" (ngSubmit)="searchProducts()" class="form-inline">
+                <div class="input-group mb-2 mr-sm-2">
+                    <!-- <input type="text" class="form-control mb-2 mr-sm-2" id="slider-what" placeholder="¿Qué buscas?" name="slider-what" /> -->
+                    <select [(ngModel)]="seletedValueType" formControlName="category" name="category" id="slider-what" class="form-control mb-2 mr-sm-2">
+                        <option [disabled]="true" value="">¿Qué buscas?</option>
+                        <option value="vestidos">Vestidos</option>
+                        <option value="accesorios">Accesorios</option>
+                    </select>
+                </div>
+                <div class="input-group mb-2 mr-sm-2">
+                    <select [(ngModel)]="seletedValueLocation" formControlName="where" name="where" id="slider-where" class="form-control mb-2 mr-sm-2">
+                        <option [disabled]="true" value="">Selecciona un estado</option>
+                        <!-- <option value="" disabled="" selected="">Selecciona un estado</option> -->
+						<option value="AGUASCALIENTES">Aguascalientes</option>
+						<option value="BAJA CALIFORNIA">Baja California</option>
+						<option value="BAJA CALIFORNIA SUR">Baja California Sur</option>
+						<option value="CAMPECHE">Campeche</option>
+						<option value="COAHUILA">Coahuila</option>
+						<option value="COLIMA">Colima</option>
+						<option value="CHIAPAS">Chiapas</option>
+						<option value="CHIHUAHUA">Chihuahua</option>
+						<option value="CIUDAD DE MEXICO">Ciudad de México</option>
+						<option value="DURANGO">Durango</option>
+						<option value="ESTADO DE MEXICO">Edo. de México</option>
+						<option value="GUANAJUATO">Guanajuato</option>
+						<option value="GUERRERO">Guerrero</option>
+						<option value="HIDALGO">Hidalgo</option>
+						<option value="JALISCO">Jalisco</option>
+						<option value="MICHOACAN">Michoacán</option>
+						<option value="MORELOS">Morelos</option>
+						<option value="NAYARIT">Nayarit</option>
+						<option value="NUEVO LEON">Nuevo León</option>
+						<option value="OAXACA">Oaxaca</option>
+						<option value="PUEBLA">Puebla</option>
+						<option value="QUERETARO">Querétaro</option>
+						<option value="QUINTANA ROO">Quintana Roo</option>
+						<option value="SAN LUIS POTOSI">San Luis Potosí</option>
+						<option value="SINALOA">Sinaloa</option>
+						<option value="SONORA">Sonora</option>
+						<option value="TABASCO">Tabasco</option>
+						<option value="TAMAULIPAS">Tamaulipas</option>
+						<option value="TLAXCALA">Tlaxcala</option>
+						<option value="VERACRUZ">Veracruz</option>
+						<option value="YUCATAN">Yucatán</option>
+						<option value="ZACATECAS">Zacatecas</option>
+                        <!-- <option [value]="item.state" *ngFor="let item of locations">{{ item.state }}</option> -->
+                    </select>
+                    <!-- <input type="text" class="form-control" id="slider-where" placeholder="¿Dónde?" formControlName="where" name="where" /> -->
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                </div>
+            </form>
+        </div>
+        <div id="slider-content-search-subtitle">De noche, fiesta, graduación y de novia en diferentes tallas y modelos.</div>
+    </div>
+</section>
+<!-- Home slider end -->

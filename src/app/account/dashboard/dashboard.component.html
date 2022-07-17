@@ -1,0 +1,90 @@
+<div class="dashboard shadow">
+    <div class="page-title">
+        <h2>Mi cuenta</h2>
+    </div>
+    <div class="welcome-msg">
+        <p>Hola, {{ userService.user.name }} {{ userService.user.lastname }} !</p>
+        <p>Desde el Panel de control, puede ver la actividad reciente y actualizar los datos de la misma.</p>
+    </div>
+    <div class="box-account box-info mt-4">
+        <!-- <div class="box-head">
+            <h2>Informacion de la cuenta</h2>
+        </div> -->
+        <form action="">
+            <div class="col-xl-12 col-lg-12 col-12 align-self-start animated slideInRight animation-delay-800ms">
+                <div class="data">
+                    <div class="icon"><i class="fa fa-envelope"></i></div>
+                    <div class="text">
+                        <div class="title">Correo Electrónico</div>
+                        <div class="value">{{ userService.user.email }}</div>
+                    </div>
+                </div>
+                <div class="data">
+                    <div class="icon"><i class="fa fa-lock"></i></div>
+                    <div class="text">
+                        <div class="title">Contraseña</div>
+                        <div class="value" *ngIf="!editPasswordEnabled">*********</div>
+                        <div class="input-group" style="width: 350px;" *ngIf="editPasswordEnabled">
+                            <input type="password" class="form-control" [formControl]="form.controls['password']" placeholder="Nueva contraseña" aria-label="Nueva contraseña" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="updateAccount('password')">Guardar</button>
+                            </div>
+                        </div>
+                        <!-- <div class="value" *ngIf="editPasswordEnabled"><input type="text" class="form-control" name="" id=""></div> -->
+                    </div>
+                    <div class="text text-right" style="width: 100%;">
+                        <div><a class="pointer" (click)="editItem('password')">Editar</a></div>
+                    </div>
+                </div>
+                <div class="data">
+                    <div class="icon"><i class="fa fa-phone"></i></div>
+                    <div class="text">
+                        <div class="title">Teléfono</div>
+                        <div class="value" *ngIf="!editPhoneEnabled">{{ userService.user.phone }}</div>
+                        <div class="input-group" style="width: 350px;" *ngIf="editPhoneEnabled">
+                            <input type="text" class="form-control" [formControl]="form.controls['phone']" placeholder="Nuevo Teléfono" aria-label="Nuevo Teléfono" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="updateAccount('phone')">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text text-right" style="width: 100%;">
+                        <div><a class="pointer" (click)="editItem('phone')">Editar</a></div>
+                    </div>
+                </div>
+                <div class="data">
+                    <div class="icon"><i class="fa fa-user-circle"></i></div>
+                    <div class="text">
+                        <div class="title">Fecha de Nacimiento</div>
+                        <div class="value" *ngIf="!editBirthdayEnabled">{{ userService.user.birthday }}</div>
+                        <div class="input-group" style="width: 350px;" *ngIf="editBirthdayEnabled">
+                            <input type="date" class="form-control" [formControl]="form.controls['birthday']" placeholder="Nueva Fecha de Nacimiento" aria-label="Nueva Fecha de Nacimiento" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="updateAccount('birthday')">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text text-right" style="width: 100%;">
+                        <div><a class="pointer" (click)="editItem('birthday')">Editar</a></div>
+                    </div>
+                </div>
+                <div class="data">
+                    <div class="icon"><i class="fa fa-user-circle"></i></div>
+                    <div class="text">
+                        <div class="title">Género</div>
+                        <div class="value" *ngIf="!editGenderEnabled">{{ userService.user.gender }}</div>
+                        <div class="input-group" style="width: 350px;" *ngIf="editGenderEnabled">
+                            <input type="text" class="form-control" [formControl]="form.controls['gender']" placeholder="Nuevo Genero" aria-label="Nuevo Genero" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="updateAccount('gender')">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text text-right" style="width: 100%;">
+                        <div><a class="pointer" (click)="editItem('gender')">Editar</a></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <!-- <th class="w-10"></th> -->
+            <th>Fecha</th>
+            <th>No.Pedido</th>
+            <!-- <th>Arrendatario</th> -->
+            <th>Cliente</th>
+            <!-- <th>Producto</th> -->
+            <!-- <th>Comision</th> -->
+            <th>Estatus Pago</th>
+            <th>Metodo Pago</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody *ngIf="sales">
+        <tr *ngFor="let sale of sales | paginate: { itemsPerPage: 10, currentPage: pageActual }">
+            <!-- <td>
+                <img width="50px" height="50px" class="rounded rounded-circle" [src]="sale.imagenes | image:'sale': sale.id">
+            </td> -->
+            <td>
+                {{ sale.date | date }}
+            </td>
+            <td>
+                {{ sale.order }}
+            </td>
+            <td>
+                {{ sale.client.name }} {{ sale.client.lastname }}
+            </td>
+            <!-- <td>
+                {{ sale.name }}
+            </td> -->
+            <!-- <td>
+                {{ sale.product.name }}
+            </td> -->
+            <!-- <td>
+                {{ sale.commision }}
+            </td> -->
+            <td>
+                {{ sale.pay_status }}
+            </td>
+            <td>
+                {{ sale.pay_method }}
+            </td>
+            <td>
+                {{ sale.total }}
+            </td>
+            <td>
+                <a [routerLink]="['/cuenta/ver-orden/', sale.order]"><i class="ti-eye text-success"></i></a>
+                <i class="ti-trash text-danger ml-md-2 pointer" (click)="deleteOrder( sale )"></i>
+                <!-- <i class="ti-archive text-info ml-md-2 pointer" (click)="archiveProperty( property )"></i> -->
+                <!-- <span *ngIf="loadingButton" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="row mt-4" *ngIf="sales.length > 0">
+    <div class="col-md-12">
+        <nav aria-label="Page navigation example" class="float-right">
+            <pagination-controls class="rounded rounded-circle" responsive="true" previousLabel="" nextLabel="" (pageChange)="pageActual = $event">
+            </pagination-controls>
+        </nav>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 text-center section-b-space no-found" *ngIf="sales.length == 0">
+        <img src="assets/images/empty-search.jpg" class="img-fluid mb-4">
+        <h3>¡Lo siento! No se encontraron pedidos!!! </h3>
+    </div>
+</div>

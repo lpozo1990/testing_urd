@@ -1,0 +1,108 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Merriweather Sans";
+    min-height: 100%;
+}
+
+
+/*************
+FONTS
+**************/
+
+@font-face {
+    font-family: 'Giddyup';
+    font-style: normal;
+    font-weight: normal;
+    src: url(assets/fonts/Giddyup-Std.woff2) format('woff2');
+    src: url(assets/fonts/Giddyup-Std.woff) format('woff');
+    src: url(assets/fonts/Giddyup-Std.ttf) format('truetype');
+}
+
+
+/*************
+ANIMATIONS
+**************/
+
+@keyframes shaek {
+    0% {
+        top: 0;
+    }
+    33% {
+        top: -10px;
+    }
+    50% {
+        top: -3px;
+    }
+    83% {
+        top: -7px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+.main-menu .brand-logo {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.ct-icon {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: url(assets/images/icon/icons.png);
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position-x: 0;
+    vertical-align: middle;
+}
+
+.ct-icon-login {
+    background-position-y: 0;
+}
+
+.ct-icon-wishlist {
+    background-position-y: -80px;
+}
+
+.ct-icon-car {
+    background-position-y: -160px;
+}
+
+.ct-icon-search {
+    background-position-y: -480px;
+}
+
+.ct-icon-tag {
+    background-position-y: -560px;
+}
+
+.ct-icon-dress {
+    background-position-y: -640px;
+}
+
+.ct-icon-star {
+    background-position-y: -720px;
+}
+
+.ct-icon-hands {
+    background-position-y: -800px;
+}
+
+#steps-notify-contain .steps-contain .steps-item .steps-item-icon {
+    animation-duration: 0s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif !important;
+}

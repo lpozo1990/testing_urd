@@ -1,0 +1,30 @@
+.data {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    align-items: center;
+}
+
+.data .icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 25px;
+    font-size: 35px;
+    color: #03b1f3;
+}
+
+.form-control {
+    height: 35px;
+    /* border-radius: 5px !important; */
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.title {
+    width: 400px;
+}

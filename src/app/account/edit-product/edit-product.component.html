@@ -1,0 +1,273 @@
+<div class="row">
+    <div class="col-12">
+        <h4>Editar Artículo</h4>
+        <hr>
+    </div>
+</div>
+<form action="" [formGroup]="forma" (ngSubmit)="updateProduct(product.id)">
+
+    <ng-container *ngIf="product">
+        <div class="row">
+
+            <!-- NAME -->
+            <div class="col-12 col-md-12 mt-4">
+                <span class="text-uppercase font-weight-bold">Nombre del producto</span>
+                <hr>
+                <div class="row mt-3 pl-3">
+                    <div class="col-12 text-left pl-0">
+                        <input [(ngModel)]="product.name" formControlName="name" name="name" type="text" class="form-control" id="name" placeholder="" required="">
+                    </div>
+                </div>
+            </div>
+            <!-- END NAME -->
+
+            <!-- TYPE -->
+            <div class="col-12 col-md-6 mt-4">
+                <span class="text-uppercase font-weight-bold">Selecciona el tipo</span>
+                <hr>
+                <div class="select-option">
+                    <select [(ngModel)]="product.type" formControlName="type_slug" name="type_slug" id="type" class="form-control">
+                    <option [disabled]="true" value="">Seleccione</option>
+                    <option value="{{type.slug}}" *ngFor="let type of types">{{ type.name }}</option>
+                </select>
+                </div>
+            </div>
+            <!-- END TYPE -->
+
+            <!-- CHANCE -->
+            <div class="col-12 col-md-6 mt-4">
+                <span class="text-uppercase font-weight-bold">Selecciona la ocasión</span>
+                <hr>
+                <div class="select-option">
+                    <select [(ngModel)]="product.chance" formControlName="chance_slug" name="chance_slug" id="chance" class="form-control">
+                    <option value="">Seleccione</option>
+                    <option value="{{chance.slug}}" *ngFor="let chance of chances">{{ chance.name }}</option>
+                </select>
+                </div>
+            </div>
+            <!-- END CHANCE -->
+
+            <!-- SEASON -->
+            <div class="col-12 col-md-6 mt-4">
+                <span class="text-uppercase font-weight-bold">Selecciona la temporada</span>
+                <hr>
+                <div class="select-option">
+                    <select [(ngModel)]="product.season" formControlName="season_slug" name="season_slug" id="season" class="form-control">
+                    <option value="">Seleccione</option>
+                    <option value="{{season.slug}}" *ngFor="let season of seasons">{{ season.name }}</option>
+                </select>
+                </div>
+            </div>
+            <!-- END SEASON -->
+
+            <!-- SLEEVES -->
+            <div class="col-12 col-md-6 mt-4">
+                <span class="text-uppercase font-weight-bold">Selecciona las mangas</span>
+                <hr>
+                <div class="select-option">
+                    <select [(ngModel)]="product.sleeve" formControlName="sleeve_slug" name="sleeve_slug" id="sleeve" class="form-control">
+                    <option value="">Seleccione</option>
+                    <option value="{{sleeve.slug}}" *ngFor="let sleeve of sleeves">{{ sleeve.name }}</option>
+                </select>
+                </div>
+            </div>
+            <!-- END SLEEVES -->
+
+            <!-- IMAGES -->
+            <div class="col-12 col-md-6 mt-4">
+                <span class="text-uppercase font-weight-bold">Adjunta las fotografias de tu producto</span>
+                <hr>
+                <div class="row ml-2 mt-3">
+
+                    <ng-container *ngIf="images.length > 0">
+                        <ng-container *ngFor="let image of images; let idx = index">
+                            <div class="col-5 col-md-3 px-0 mr-2 mt-2 d-flex justify-content-center align-items-center border rounded">
+                                <label class="position-relative mb-0">
+                                    <img width="100px" height="100px" style="max-width:100%" [src]="image | image:'product': product.id">
+                                    <span class="bg-danger position-absolute rounded-circle text-white px-2 pointer" style="right: 1px;" (click)="deleteImage(image, idx,product.id)">x</span>
+                                </label>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+
+                    <ng-container *ngIf="imageTempArray.length > 0">
+                        <ng-container *ngFor="let image of imageTempArray">
+                            <div class="col-5 col-md-3 px-0 mr-2 mt-2 d-flex justify-content-center align-items-center border rounded">
+                                <label class="position-relative mb-0">
+                                    <!-- <img width="150px" height="150px" style="max-width:150px" [src]="image | image:'product'"> -->
+                                    <img width="100px" height="100px" style="max-width:100%" [src]="image">
+                                    <!-- <span class="bg-danger position-absolute rounded-circle text-white px-2 pointer" style="right: 1px;" (click)="deleteImage(image, _propertyService.property.id)">X</span> -->
+                                </label>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+
+                    <div class="col-5 col-md-3 px-0 mt-2 d-flex justify-content-center align-items-center border rounded" *ngIf="imageTempArray.length === 0">
+                        <label for="file-product1" class="mb-0 p-4 subir pointer">
+                            <h3  class="mb-0" *ngIf="!loadingImage"><i class="ti-image"></i></h3>
+                            <div class="spinner-border" role="status" *ngIf="loadingImage">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </label>
+                        <input (change)="selectImage($event)" id="file-product1" name="file" type="file" class="d-none" />
+                    </div>
+
+                    <div class="col-5 col-md-3 px-0 mt-2 d-flex justify-content-center align-items-center border rounded" *ngIf="uploadFile">
+                        <label for="file-product1" class="mb-0 p-4 subir pointer">
+                            <h3  class="mb-0" *ngIf="!loadingImage"><i class="ti-image"></i></h3>
+                            <div class="spinner-border" role="status" *ngIf="loadingImage">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </label>
+                        <input id="file-product1" (change)="selectImage($event)" name="file" type="file" class="d-none" />
+                    </div>
+                    <div class="col-5 col-md-3 d-flex justify-content-center align-items-center">
+                        <div class="px-1 py-5">
+                            <h3 class="mb-0"><i class="ti-plus p-3 border rounded-circle pointer" (click)="availableUploadFile()"></i></h3>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <!-- END IMAGES -->
+
+            <!-- SIZES -->
+            <div class="col-12 col-md-6 mt-4">
+                <span class="text-uppercase font-weight-bold">Selecciona la talla de tu vestido</span>
+                <hr>
+                <div class="row mt-3 pl-3">
+                    <div class="size text-left">
+                        <ng-container *ngFor="let size of sizes">
+                            <label class="label-size">
+                                <input type="checkbox" [checked]="size.checked" class="input-radio-color" (change)="onCheckboxChange($event)" value="{{ size.id }}">
+                            <span class="check-size text-center" style="color: #ccc; border: 1px solid #ccc; padding-top: 10px">{{ size.name }} </span>
+                        </label>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <!-- END SIZES -->
+
+            <!-- PRICE -->
+            <div class="col-12 col-md-3 mt-4">
+                <span class="text-uppercase font-weight-bold">Costo de Renta</span>
+                <hr>
+                <div class="row mt-3 pl-3">
+                    <div class="col-12 text-left pl-0">
+                        <input [(ngModel)]="product.price" formControlName="price" name="price" type="text" class="form-control" id="review" placeholder="" required="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mt-4">
+                <span class="text-uppercase font-weight-bold">Costo del Vestido</span>
+                <hr>
+                <div class="row mt-3 pl-3">
+                    <div class="col-12 text-left pl-0">
+                        <input [(ngModel)]="product.price_sale" formControlName="price_sale" name="price_sale" type="text" class="form-control" id="review" placeholder="" required="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- END PRICE -->
+
+            <!-- COLOR -->
+            <div class="col-12 col-md-6 mt-4">
+                <span class="text-uppercase font-weight-bold">Selecciona el color</span>
+                <hr>
+                <div class="row mt-3 pl-3">
+                    <div class="col-12 pl-0">
+                        <div class="size text-left">
+                            <ng-container *ngFor="let color of colors">
+                                <label class="label-size">
+                                    <input type="checkbox" [checked]="color.checked" class="input-radio-color" (change)="onCheckboxChangeColor($event)" value="{{ color.id }}">
+                                    <span class="check-size text-center border-circle" [ngStyle]="{'background': color.color}"></span>
+                                </label>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END COLOR -->
+
+            <!-- DESCRIPTION -->
+            <div class="col-12 mt-4">
+                <span class="text-uppercase font-weight-bold">Descripcion</span>
+                <hr>
+                <div class="row mt-3 pl-3">
+                    <div class="col-12 text-left pl-0">
+                        <textarea class="form-control" [(ngModel)]="product.description" formControlName="description" name="description" placeholder="Describe tu producto aqui" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- END DESCRIPTION -->
+
+            <!-- ADDRESS -->
+            <div class="col-12 mt-4">
+                <span class="text-uppercase font-weight-bold">Confirma la ubicación</span>
+                <hr>
+                <div class="row pl-3">
+                    <div class="col-md-6 pl-0">
+                        <label for="">Calle:</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="product.location.street" formControlName="street" class="form-control" name="street" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-3 pl-0">
+                        <label for="">Número exterior:</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="product.location.nro_ext" formControlName="nro_ext" class="form-control" name="nro_ext" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-3 pl-0">
+                        <label for="">Número interior:</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="product.location.nro_int" formControlName="nro_int" class="form-control" name="nro_int" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-0">
+                        <label for="">Colonia:</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="product.location.colony" formControlName="colony" class="form-control" name="colony" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-0">
+                        <label for="">Municipio o Alcaldía:</label>
+                        <div class="form-group">
+                            <input [(ngModel)]="product.location.municipality" formControlName="municipality" class="form-control" name="municipality" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-0">
+                        <label for="">Estado:</label>
+                        <div class="form-group">
+                            <input formControlName="state" [(ngModel)]='product.location.state' class="form-control" name="state" type="text">
+                            <input class='col-sm-10' type="hidden" [(ngModel)]='product.location.country' formControlName="country" name="country" class='form-control' value="México" placeholder='State'>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-0">
+                        <label for="">Código Postal:</label>
+                        <div class="form-group">
+                            <input formControlName="cod_postal" [(ngModel)]='product.location.cod_postal' class="form-control" name="cod_postal" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-12 pl-0 text-center">
+                        <button type="button" (click)='updateOnMap($event)' type="submit" class="btn btn-primary">Buscar en Mapa</button>
+                    </div>
+                </div>
+                <div class="row ml-2 mt-4">
+                    <div class="col-md-12 pl-0">
+                        <agm-map style="height: 350px" [(latitude)]="locations.lat" [(longitude)]="locations.lng" [(zoom)]="locations.zoom" [disableDefaultUI]="true" [zoomControl]="true">
+                            <agm-marker [(latitude)]="locations.marker.lat" [(longitude)]="locations.marker.lng" [markerDraggable]="locations.marker.draggable" (dragEnd)='markerDragEnd($event)'></agm-marker>
+                        </agm-map>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-rounded text-white float-right">Guardar</button>
+            </div>
+            <!-- END ADDRESS -->
+        </div>
+    </ng-container>
+</form>

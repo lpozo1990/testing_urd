@@ -1,0 +1,112 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>contacto</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a [routerLink]="'/home/one'">Inicio</a></li>
+                        <li class="breadcrumb-item active">contacto</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class=" contact-page section-b-space">
+    <div class="container">
+        <div class="row section-b-space">
+            <div class="col-lg-7 map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.747282962686!2d-99.17119328514389!3d19.380092286914213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff9f6c5e0af3%3A0xd5f1b1e6e04ae2be!2sAv.%20Coyoac%C3%A1n%201025%2C%20Col%20del%20Valle%20Centro%2C%20Benito%20Ju%C3%A1rez%2C%2003100%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX%2C%20M%C3%A9xico!5e0!3m2!1ses!2sve!4v1586617124624!5m2!1ses!2sve"
+                    width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+            <div class="col-lg-5">
+                <div class="contact-right">
+                    <ul>
+                        <li>
+                            <div class="contact-icon">
+                                <img src="assets/images/icon/phone.png" alt="Generic placeholder image">
+                                <h6>Contactanos</h6>
+                            </div>
+                            <div class="media-body">
+                                <br>
+                                <p>+56 331 319 1998</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <h6>Direccion</h6>
+                            </div>
+                            <div class="media-body">
+                                <p>Av. Coyoacán 1025, Col del Valle Centro, Benito Juárez</p>
+                                <p>03100 Ciudad de México, CDMX</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <img src="assets/images/icon/email.png" alt="Generic placeholder image">
+                                <h6>E-mail</h6>
+                            </div>
+                            <div class="media-body">
+                                <br>
+                                <p>info@urdressap.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                <h6>WhatsApp</h6>
+                            </div>
+                            <div class="media-body">
+                                <br>
+                                <p>+56 331 319 1998</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="theme-form" action="" [formGroup]="forma" (ngSubmit)="sendMessage()">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" formControlName="name" name="name" id="name" placeholder="Ingrese su nombre" required="">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Apellido</label>
+                            <input type="text" class="form-control" formControlName="lastname" name="lastname" id="last-name" placeholder="Apellido" required="">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="review">Telefono</label>
+                            <input type="text" class="form-control" formControlName="phone" name="phone" id="review" placeholder="Ingrese su nro de telefono" required="">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">E-mail</label>
+                            <input type="text" class="form-control" formControlName="email" name="email" id="email" placeholder="E-mail" required="">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="review">Mensaje</label>
+                            <textarea class="form-control" formControlName="message" name="message" placeholder="Escriba su mensaje" id="exampleFormControlTextarea1" rows="6"></textarea>
+                        </div>
+                        <re-captcha (resolved)="resolved($event)" siteKey="6LdojegUAAAAAOzgseJKKTkMt95qARjSAjaopXjU">
+                        </re-captcha>
+                        <div class="col-md-12 mt-3">
+                            <button type="submit" class="btn btn-solid">Enviar mensaje</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->

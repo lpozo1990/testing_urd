@@ -1,0 +1,121 @@
+<!-- Section ends -->
+<!-- order-detail section start -->
+<section class="section-b-space pt-0" *ngIf="history">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row order-success-sec">
+
+                    <div class="col-sm-5 block-content border py-3 bg-light">
+                        <h4>resumen</h4>
+                        <ul class="order-detail">
+                            <li><strong>arrendador: </strong> &nbsp;{{ history.user.name }} {{ history.user.lastname }}</li>
+                            <li><strong>telefono: </strong> &nbsp;{{ history.user.phone }}</li>
+                            <li><strong>e-mail: </strong> &nbsp;{{ history.user.email }}</li>
+                            <li><strong>orden:</strong> &nbsp;{{history.order}}</li>
+                            <li><strong>Fecha de Orden:</strong> &nbsp;{{ history.date | date }}</li>
+                            <li><strong>Total orden:</strong> &nbsp;{{history.total | currency:productsService?.currency:'symbol'}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-sm-6 block-content border py-3 bg-light">
+                        <h4>Datos del Cliente</h4>
+                        <ul class="order-detail">
+                            <li><strong>cliente: </strong> &nbsp;{{ history.client.name }} {{ history.client.lastname }}</li>
+                            <li><strong>telefono: </strong> &nbsp;{{ history.shippingAddress.phone }}</li>
+                            <li><strong>e-mail: </strong> &nbsp;{{ history.client.email }}</li>
+                            <li><strong>Dirección: </strong>&nbsp;{{history.shippingAddress.address}}, {{history.shippingAddress.state}}, México, {{history.shippingAddress.postal}}</li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="col-sm-5 block-content border py-3 bg-light">
+                        <h4>resumen</h4>
+                        <ul class="order-detail">
+                            <li><strong>rentador: </strong> &nbsp;{{ history.user.name }} {{ history.user.lastname }}</li>
+                            <li><strong>telefono: </strong> &nbsp;{{ history.user.phone }}</li>
+                            <li><strong>e-mail: </strong> &nbsp;{{ history.user.email }}</li>
+                            <li><strong>orden:</strong> {{history.order}}</li>
+                            <li><strong>Fecha de Orden:</strong> &nbsp;{{ history.date | date }}</li>
+                            <li><strong>Total orden:</strong> &nbsp;{{history.total | currency:productsService?.currency:'symbol'}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-sm-6 block-content border py-3 bg-light">
+                        <h4>Direccion de envio</h4>
+                        <ul class="order-detail">
+                            <li>{{history.shippingAddress.address}}</li>
+                            <li>{{history.shippingAddress.state}}</li>
+                            <li>Mexico, {{history.shippingAddress.postal}}</li>
+                            <li>Contacto. {{history.shippingAddress.phone}}</li>
+                        </ul>
+                    </div> -->
+
+                    <!-- <div class="col-sm-12 payment-mode">
+                        <h4>metodo de pago</h4>
+                        <p>Pago contra entrega (efectivo / tarjeta). Pago contra reembolso (COD) disponible. Aceptación bancaria / tarjeta bancaria sujeta a disponibilidad del dispositivo.</p>
+                    </div> -->
+                    <!-- <div class="col-md-12">
+                        <div class="delivery-sec">
+                            <h3>fecha esperada de entrega</h3>
+                            <h2>Febrero 23, 2020</h2>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-12 mt-5 px-0">
+                <div class="product-order block-content border p-3">
+                    <h3>Detalles del pedido</h3>
+                    <div class="row product-order-detail" *ngFor="let item of history.details">
+                        <div class="col-2">
+                            <img src="{{URL_SERVICES_IMG}}/{{ item.product_id }}/{{ item.cover }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-3 order_detail">
+                            <div>
+                                <h4>Nombre</h4>
+                                <h5>{{item.product_name}}</h5>
+                                <small>Talla: {{ item.size }}</small><br>
+                                <small>Color: {{ item.color }}</small>
+                            </div>
+                        </div>
+                        <!-- <div class="col-3 order_detail">
+                            <div>
+                                <h4>cantidad</h4>
+                                <h5>{{item.quantity}}</h5>
+                            </div>
+                        </div> -->
+                        <div class="col-2 order_detail">
+                            <div>
+                                <h4>precio</h4>
+                                <h5>{{item.unit_cost | currency:productsService?.currency:'symbol'}}</h5>
+                            </div>
+                        </div>
+                        <div class="col-2 order_detail">
+                            <div>
+                                <h4>Dia de evento</h4>
+                                <h5>{{ item.date_rent }}</h5>
+                            </div>
+                        </div>
+                        <div class="col-2 order_detail">
+                            <div>
+                                <h4>Se regresa</h4>
+                                <h5>{{ item.date_rent | dateReturn }}</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="total-sec">
+                        <ul>
+                            <li>Subtotal <span>{{history.total | currency:productsService?.currency:'symbol'}}</span></li>
+                            <li>Envio <span>$00.00</span></li>
+                            <li>Impuesto <span>$00.00</span></li>
+                        </ul>
+                    </div>
+                    <div class="final-total">
+                        <h3>total a pagar <span>{{history.total | currency:productsService?.currency:'symbol'}}</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->

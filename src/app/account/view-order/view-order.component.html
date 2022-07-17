@@ -1,0 +1,89 @@
+<!-- Section ends -->
+<!-- order-detail section start -->
+<section class="section-b-space pt-0" *ngIf="order">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row order-success-sec">
+                    <div class="col-sm-5 block-content border py-3 bg-light">
+                        <h4>resumen</h4>
+                        <ul class="order-detail">
+                            <li><strong>arrendador: </strong> &nbsp;{{ order.user.name }} {{ order.user.lastname }}</li>
+                            <li><strong>telefono: </strong> &nbsp;{{ order.user.phone }}</li>
+                            <li><strong>e-mail: </strong> &nbsp;{{ order.user.email }}</li>
+                            <li><strong>orden:</strong> &nbsp;{{order.order}}</li>
+                            <li><strong>Fecha de Orden:</strong> &nbsp;{{ order.date | date }}</li>
+                            <li><strong>Total orden:</strong> &nbsp;{{order.total | currency:productsService?.currency:'symbol'}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-sm-6 block-content border py-3 bg-light">
+                        <h4>Datos del Cliente</h4>
+                        <ul class="order-detail">
+                            <li><strong>cliente: </strong> &nbsp;{{ order.client.name }} {{ order.client.lastname }}</li>
+                            <li><strong>telefono: </strong> &nbsp;{{ order.shippingAddress.phone }}</li>
+                            <li><strong>e-mail: </strong> &nbsp;{{ order.client.email }}</li>
+                            <li><strong>Dirección: </strong>&nbsp;{{order.shippingAddress.address}}, {{order.shippingAddress.state}}, México, {{order.shippingAddress.postal}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mt-5 px-0">
+                <div class="product-order block-content border p-3">
+                    <h3>Detalles del pedido</h3>
+                    <div class="row product-order-detail" *ngFor="let item of order.details">
+                        <div class="col-2">
+                            <img src="{{URL_SERVICES_IMG}}/{{ item.product_id }}/{{ item.cover }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-3 order_detail">
+                            <div>
+                                <h4>Nombre</h4>
+                                <h5>{{item.product_name}}</h5>
+                                <small>Talla: {{ item.size }}</small><br>
+                                <small>Color: {{ item.color }}</small>
+                            </div>
+                        </div>
+                        <!-- <div class="col-3 order_detail">
+                            <div>
+                                <h4>cantidad</h4>
+                                <h5>{{item.quantity}}</h5>
+                            </div>
+                        </div> -->
+                        <div class="col-2 order_detail">
+                            <div>
+                                <h4>precio</h4>
+                                <h5>{{item.unit_cost | currency:productsService?.currency:'symbol'}}</h5>
+                            </div>
+                        </div>
+                        <div class="col-2 order_detail">
+                            <div>
+                                <h4>Dia de evento</h4>
+                                <h5>{{ item.date_rent }}</h5>
+                            </div>
+                        </div>
+                        <div class="col-2 order_detail">
+                            <div>
+                                <h4>Se regresa</h4>
+                                <h5>{{ item.date_rent | dateReturn }}</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="total-sec">
+                        <ul>
+                            <li>Subtotal <span>{{order.total | currency:productsService?.currency:'symbol'}}</span></li>
+                            <!-- <li>Envio <span>$00.00</span></li> -->
+                            <li>Comision Urdress <span>13%</span></li>
+                        </ul>
+                    </div>
+                    <div class="final-total">
+                        <h3>total <span>{{order.total - (0.13 * order.total) | currency:productsService?.currency:'symbol'}}</span></h3>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- Section ends -->

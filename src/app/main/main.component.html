@@ -1,0 +1,32 @@
+<app-header-one></app-header-one>
+
+<app-left-sidebar *ngIf="url == '/home/eleven'"></app-left-sidebar>
+
+<div [class]="url == '/home/eleven' ? 'left-sidebar_space' : ''">
+    <!-- Left sidebar menu only -->
+
+    <router-outlet></router-outlet>
+
+    <!--footer section -->
+    <section id="subscribe" class="subscribe" *ngIf="subscribe">
+        <div id="subscribe-contain" class="container">
+            <div class="row">
+                <div class="col-12 subscribe-form-contain">
+                    <div id="subscribe-title">Suscríbete a nuestras noticias!</div>
+                    <div id="subscribe-form">
+                        <form class="form-inline" action="" [formGroup]="forma" (ngSubmit)="subscribeNewsletter()">
+                            <div class="input-group mb-2 mr-sm-2">
+                                <input type="email" formControlName="email" name="email" id="subscribe-email" class="form-control" placeholder="Introduce tu correo eléctronico">
+                            </div>
+                            <div class="form-submit">
+                                <button type="submit" class="btn btn-primary mb-2">SUSCRÍBASE AHORA</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <app-footer-one></app-footer-one>
+
+</div>

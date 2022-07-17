@@ -1,0 +1,138 @@
+p,
+li {
+    font-family: Raleway !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+li {
+    /* display: flex;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; */
+    /* padding: 10px 25px 10px 25px; */
+}
+
+.dashboard-left .block-content ul li:before {
+    content: '' !important;
+}
+
+.ct-icon-dress {
+    background-position-y: -207px !important;
+}
+
+.ct-icon {
+    display: inline-block;
+    width: 16px !important;
+    height: 18px !important;
+    background: url(../../../assets/images/icon/icons.png);
+    background-size: 16px !important;
+    background-repeat: no-repeat;
+    background-position-x: 0;
+    vertical-align: middle;
+}
+
+
+/** CHAT **/
+
+.speech-bubble {
+    position: relative;
+    background: #01addf;
+    border-radius: .4em;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 30%;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-left-color: #01addf;
+    border-right: 0;
+    margin-top: -5px;
+    margin-right: -5px;
+}
+
+.speech-bubble-admin {
+    position: relative;
+    background: #000;
+    border-radius: .4em;
+}
+
+.speech-bubble-admin:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-right-color: #000;
+    border-left: 0;
+    margin-top: -5px;
+    margin-left: -5px;
+}
+
+.scroll-bar {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 250px;
+}
+
+.scroll-bar::-webkit-scrollbar {
+    width: 8px;
+    height: 60px;
+}
+
+
+/* Estilos track de scroll */
+
+.scroll-bar::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+.scroll-bar::-webkit-scrollbar-track:hover,
+.scroll-bar::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilos track de scroll */
+
+.scroll-bar::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+.scroll-bar::-webkit-scrollbar-track:hover,
+.scroll-bar::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+}
